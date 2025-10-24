@@ -1,0 +1,25 @@
+html.lenis {
+  @apply h-auto;
+}
+.lenis {
+  &.lenis-smooth {
+    @apply scroll-auto;
+    &[data-lenis-prevent] {
+      @apply overscroll-contain;
+    }
+  }
+  &.lenis-stopped {
+    @apply overflow-hidden;
+  }
+  &.lenis-scrolling iframe {
+    @apply pointer-events-none;
+  }
+}
+
+/* Ensure mobile devices can scroll normally */
+@media (max-width: 1023px) {
+  html.lenis,
+  html.lenis body {
+    @apply h-auto overflow-auto;
+  }
+}
