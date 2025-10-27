@@ -1,10 +1,3 @@
-import behance from '@public/images/icons/behance.svg';
-import dribbble from '@public/images/icons/dribbble.svg';
-import facebook from '@public/images/icons/facebook.svg';
-import instagram from '@public/images/icons/instagram.svg';
-import linkedin from '@public/images/icons/linkedin.svg';
-import youtube from '@public/images/icons/youtube.svg';
-import darkLogo from '@public/images/shared/dark-logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import RevealAnimation from '../../animation/RevealAnimation';
@@ -21,7 +14,7 @@ const FooterTwo = () => {
       <FooterRightGradient className="pointer-events-none absolute top-[-15%] right-[-71%] z-0 h-[618px] w-[617px] rotate-[-30deg] bg-top-right bg-no-repeat select-none max-[376px]:right-[-68%] md:top-[-21%] md:right-[-33%] lg:right-[-19%] xl:top-[-24%] xl:right-[-9%]" />
 
       {/* <!-- left gradient --> */}
-      <FooterLeftGradient className="pointer-events-none absolute -bottom-[8%] -left-[65%] z-0 size-[570px] select-none min-[2559px]:!bottom-[-14%] min-[2559px]:!left-[-16%] md:-bottom-[20%] md:-left-[59%] md:size-[870px] lg:-left-[38%] xl:-bottom-[26%] xl:-left-[21%]" />
+  <FooterLeftGradient className="pointer-events-none absolute -bottom-[8%] -left-[65%] z-0 size-[570px] select-none min-[2559px]:bottom-[-14%]! min-[2559px]:left-[-16%]! md:-bottom-[20%] md:-left-[59%] md:size-[870px] lg:-left-[38%] xl:-bottom-[26%] xl:-left-[21%]" />
 
       <CTAV1
         className="relative z-10 px-5 py-14 max-[400px]:py-14 xl:py-[88px]"
@@ -40,7 +33,7 @@ const FooterTwo = () => {
             <RevealAnimation delay={0.3}>
               <div className="xl:max-w-[306px]">
                 <figure>
-                  <Image src={darkLogo} alt="NextSass Logo" />
+                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={198} height={44} className="dark:invert" />
                 </figure>
                 <p className="text-accent/60 text-tagline-1 mt-4 mb-7 font-normal">
                   Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.
@@ -48,32 +41,32 @@ const FooterTwo = () => {
                 <div className="flex items-center gap-3">
                   <Link target="_blank" href="https://www.facebook.com" className="footer-social-link">
                     <span className="sr-only">Facebook</span>
-                    <Image className="size-6" src={facebook} alt="Facebook" />
+                    <Image className="size-6" src="/images/icons/facebook.svg" alt="Facebook" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px"></div>
                   <Link target="_blank" href="https://www.instagram.com" className="footer-social-link">
                     <span className="sr-only">Instagram</span>
-                    <Image className="size-6" src={instagram} alt="Instagram" />
+                    <Image className="size-6" src="/images/icons/instagram.svg" alt="Instagram" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px"></div>
                   <Link target="_blank" href="https://www.youtube.com" className="footer-social-link">
                     <span className="sr-only">Youtube</span>
-                    <Image className="size-6" src={youtube} alt="Youtube" />
+                    <Image className="size-6" src="/images/icons/youtube.svg" alt="Youtube" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px"></div>
                   <Link target="_blank" href="https://www.linkedin.com" className="footer-social-link">
                     <span className="sr-only">LinkedIn</span>
-                    <Image className="size-6" src={linkedin} alt="LinkedIn" />
+                    <Image className="size-6" src="/images/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px"></div>
                   <Link target="_blank" href="https://www.dribbble.com" className="footer-social-link">
                     <span className="sr-only">Dribbble</span>
-                    <Image className="size-6" src={dribbble} alt="Dribbble" />
+                    <Image className="size-6" src="/images/icons/dribbble.svg" alt="Dribbble" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px"></div>
                   <Link target="_blank" href="https://www.behance.net" className="footer-social-link">
                     <span className="sr-only">Behance</span>
-                    <Image className="size-6" src={behance} alt="Behance" />
+                    <Image className="size-6" src="/images/icons/behance.svg" alt="Behance" width={24} height={24} />
                   </Link>
                 </div>
               </div>
@@ -86,7 +79,7 @@ const FooterTwo = () => {
                   <p className="sm:text-heading-6 text-tagline-1 text-primary-50 font-normal">Company</p>
                   <ul className="space-y-5 max-[400px]:space-y-3">
                     <li>
-                      <Link href="/about-01" className="footer-link">
+                      <Link href="/about" className="footer-link">
                         About Us
                       </Link>
                     </li>
@@ -101,7 +94,7 @@ const FooterTwo = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/contact-us" className="footer-link">
+                      <Link href="/contact" className="footer-link">
                         Contact Us
                       </Link>
                     </li>
@@ -178,7 +171,7 @@ const FooterTwo = () => {
           <FooterDivider className="bg-stroke-6 dark:bg-accent/10" />
           <RevealAnimation delay={0.7} offset={10} start="top 105%">
             <p className="text-tagline-1 max-sm:text-tagline-2 text-primary-50 font-normal">
-              Copyright &copy;NextSaaS – smart application for modern business
+              Copyright &copy;pelstack – smart application for modern business
             </p>
           </RevealAnimation>
         </div>

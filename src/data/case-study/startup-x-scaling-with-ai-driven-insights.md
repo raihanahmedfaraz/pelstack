@@ -12,7 +12,7 @@ after:
   - 'Deep customer analytics'
   - 'Faster product launches'
   - 'Lean and efficient operations'
-thumbnail: '/images/homepage/project-1.png'
+thumbnail: '/images/home-page-17/project-1.png'
 keyFeatures:
   - 'AI-driven business intelligence'
   - 'Customer behavior analytics'

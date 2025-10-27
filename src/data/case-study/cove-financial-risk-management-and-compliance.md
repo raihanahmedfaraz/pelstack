@@ -12,10 +12,7 @@ after:
   - '98%+ accuracy'
   - '45 minutes'
   - 'Automated, audit-ready compliance'
-  - 'Slow regulatory updates'
-  - 'Compliance risk exposure'
-  - 'High operational overhead'
-thumbnail: '/images/homepage/portfolio-1.jpg'
+thumbnail: '/images/home-page-15/portfolio-1.jpg'
 keyFeatures:
   - 'AI-driven risk assessment models'
   - 'Automated compliance monitoring'

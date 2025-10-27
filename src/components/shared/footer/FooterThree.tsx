@@ -1,7 +1,5 @@
 import RevealAnimation from '@/components/animation/RevealAnimation';
 import { cn } from '@/utils/cn';
-import DarkLogo from '@public/images/shared/dark-logo.svg';
-import LightLogo from '@public/images/shared/light-logo.svg';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -31,8 +29,8 @@ const FooterThree: FC<FooterThreeProps> = ({ bgGradientImg, className, gradientC
             <RevealAnimation delay={0.3}>
               <div className="xl:max-w-[306px]">
                 <figure>
-                  <Image src={LightLogo} className="dark:hidden" alt="NextSass" />
-                  <Image src={DarkLogo} className="hidden dark:block" alt="NextSass" />
+                  <Image src="/images/shared/light-logo.svg" className="dark:hidden" alt="pelstack" width={198} height={44} />
+                  <Image src="/images/shared/dark-logo.svg" className="hidden dark:block" alt="pelstack" width={198} height={44} />
                 </figure>
                 <p className="text-secondary dark:text-accent mt-4 mb-7">
                   Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.
@@ -184,7 +182,7 @@ const FooterThree: FC<FooterThreeProps> = ({ bgGradientImg, className, gradientC
                   </p>
                   <ul className="space-y-5">
                     <li>
-                      <Link href="/about-01" className="footer-link-v2">
+                      <Link href="/about" className="footer-link-v2">
                         About Us
                       </Link>
                     </li>
@@ -199,7 +197,7 @@ const FooterThree: FC<FooterThreeProps> = ({ bgGradientImg, className, gradientC
                       </Link>
                     </li>
                     <li>
-                      <Link href="/contact-us" className="footer-link-v2">
+                      <Link href="/contact" className="footer-link-v2">
                         Contact Us
                       </Link>
                     </li>
@@ -280,7 +278,7 @@ const FooterThree: FC<FooterThreeProps> = ({ bgGradientImg, className, gradientC
           <FooterDivider className="bg-stroke-2 dark:bg-accent/5" />
           <RevealAnimation delay={0.7} offset={10} start="top 105%">
             <p className="text-secondary dark:text-accent/60">
-              Copyright &copy;NextSaaS – smart application for modern business
+              Copyright &copy;pelstack – smart application for modern business
             </p>
           </RevealAnimation>
         </div>

@@ -21,68 +21,55 @@ export const navigationItems: NavigationItem[] = [
   {
     id: 'home',
     label: 'Home',
-    href: '#',
-    hasDropdown: true,
-    megaMenuComponent: 'HomeMegaMenu',
-  },
-  {
-    id: 'pages',
-    label: 'Pages',
-    href: '#',
-    hasDropdown: true,
-    megaMenuComponent: 'PageMegaMenu',
+    href: '/',
+    hasDropdown: false,
   },
   {
     id: 'about',
     label: 'About',
-    href: '#',
-    hasDropdown: true,
-    megaMenuComponent: 'AboutMenu',
+    href: '/about',
+    hasDropdown: false,
+  },
+  {
+    id: 'case-study',
+    label: 'Projects',
+    href: '/case-study',
+    hasDropdown: false,
   },
   {
     id: 'services',
     label: 'Services',
-    href: '#',
-    hasDropdown: true,
-    megaMenuComponent: 'ServicesMenu',
+    href: '/services',
+    hasDropdown: false,
   },
   {
     id: 'blog',
-    label: 'Blog',
-    href: '#',
-    hasDropdown: true,
-    megaMenuComponent: 'BlogMenu',
+    label: 'Articles',
+    href: '/blog',
+    hasDropdown: false,
+  },
+  {
+    id: 'team',
+    label: 'Team',
+    href: '/team',
+    hasDropdown: false,
   },
   {
     id: 'contact',
-    label: 'Contact Us',
-    href: '/contact-us',
+    label: 'Contact',
+    href: '/contact',
     hasDropdown: false,
   },
 ];
 
 // About Menu Data
-export const aboutMenuItems: MegaMenuItem[] = [
-  { id: 'about-1', label: 'About 01', href: '/about-01' },
-  { id: 'about-2', label: 'About 02', href: '/about-02' },
-  { id: 'about-3', label: 'About 03', href: '/about-03' },
-];
-
-// Blog Menu Data
-export const blogMenuItems: MegaMenuItem[] = [
-  { id: 'blog-1', label: 'Blog 01', href: '/blog-01' },
-  { id: 'blog-2', label: 'Blog 02', href: '/blog-02' },
-  { id: 'blog-3', label: 'Blog 03', href: '/blog-03' },
-  { id: 'blog-details', label: 'Blog Details', href: '/blog/5-strategies-for-effective-brand-storytelling' },
-];
+// Removed: aboutMenuItems (replaced by direct link in navigation)
 
 // Services Menu Data
-export const servicesMenuItems: MegaMenuItem[] = [
-  { id: 'services-1', label: 'Services Page 01', href: '/our-services-01' },
-  { id: 'services-2', label: 'Services Page 02', href: '/our-services-02' },
-  { id: 'services-3', label: 'Services Page 03', href: '/our-services-03' },
-  { id: 'services-details', label: 'Services Details', href: '/our-services/cost-allocation-and-calculation' },
-];
+// Removed: servicesMenuItems (replaced by direct link in navigation)
+
+// Blog Menu Data
+// Removed: blogMenuItems (replaced by direct link in navigation)
 
 // Home Mega Menu Data (3 columns)
 export const homeMegaMenuColumns: MegaMenuColumn[] = [
@@ -181,9 +168,6 @@ export const pageMegaMenuColumns: MegaMenuColumn[] = [
         label: 'Case Study Details',
         href: '/case-study/cove-financial-risk-management-and-compliance',
       },
-      { id: 'team-1', label: 'Our team 01', href: '/our-team-01' },
-      { id: 'team-2', label: 'Our team 02', href: '/our-team-02' },
-      { id: 'team-details', label: 'Team details', href: '/team/cody-fisher' },
       { id: 'pricing-1', label: 'Pricing Page 01', href: '/pricing-01' },
       { id: 'pricing-2', label: 'Pricing Page 02', href: '/pricing-02' },
       { id: 'pricing-3', label: 'Pricing Page 03', href: '/pricing-03' },
@@ -208,10 +192,10 @@ export const pageMegaMenuColumns: MegaMenuColumn[] = [
 
 export const headerConfig = {
   logo: {
-    alt: 'NextSaaS',
-    mainLogoPath: '@public/images/shared/main-logo.svg',
-    logoPath: '@public/images/shared/logo.svg',
-    logoDarkPath: '@public/images/shared/logo-dark.svg',
+    alt: 'pelstack',
+    mainLogoPath: '/images/shared/main-logo.svg',
+    logoPath: '/images/shared/logo.svg',
+    logoDarkPath: '/images/shared/logo-dark.svg',
   },
   cta: {
     label: 'Get started',

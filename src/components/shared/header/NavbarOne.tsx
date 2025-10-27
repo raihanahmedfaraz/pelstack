@@ -7,11 +7,9 @@ import { useNavbarScroll } from '@/hooks/useScrollHeader';
 import { cn } from '@/utils/cn';
 import { FC } from 'react';
 import MobileMenu from '../MobileMenu';
-import AboutMenu from '../mega-menu/AboutMenu';
 import BlogMenu from '../mega-menu/BlogMenu';
 import HomeMegaMenu from '../mega-menu/HomeMegaMenu';
 import PageMegaMenu from '../mega-menu/PageMegaMenu';
-import ServicesMenu from '../mega-menu/ServicesMenu';
 import Logo from './Logo';
 import MobileMenuButton from './MobileMenuButton';
 import NavCTAButton from './NavCTAButton';
@@ -47,10 +45,6 @@ const NavbarOne: FC<NavbarOneProps> = ({ className, megaMenuColor, btnClassName 
                       return <HomeMegaMenu className={megaMenuColor} />;
                     case 'PageMegaMenu':
                       return <PageMegaMenu className={megaMenuColor} />;
-                    case 'AboutMenu':
-                      return <AboutMenu className={megaMenuColor} />;
-                    case 'ServicesMenu':
-                      return <ServicesMenu className={megaMenuColor} />;
                     case 'BlogMenu':
                       return <BlogMenu className={megaMenuColor} />;
                     default:

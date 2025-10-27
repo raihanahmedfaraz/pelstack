@@ -1,13 +1,5 @@
 import RevealAnimation from '@/components/animation/RevealAnimation';
 import { cn } from '@/utils/cn';
-import gradient44 from '@public/images/gradient/gradient-44.png';
-import behance from '@public/images/icons/behance.svg';
-import dribbble from '@public/images/icons/dribbble.svg';
-import facebook from '@public/images/icons/facebook.svg';
-import instagram from '@public/images/icons/instagram.svg';
-import linkedin from '@public/images/icons/linkedin.svg';
-import youtube from '@public/images/icons/youtube.svg';
-import darkLogo from '@public/images/shared/dark-logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '../ThemeToggle';
@@ -18,7 +10,7 @@ const FooterFour = ({ className }: { className?: string }) => {
     <footer className={cn('bg-secondary dark:bg-background-8 relative z-0 overflow-hidden', className)}>
       <RevealAnimation delay={0.3} offset={50} direction="up">
         <figure className="pointer-events-none absolute -top-[1320px] left-1/2 -z-1 size-[1635px] -translate-x-1/2 select-none">
-          <Image src={gradient44} alt="footer-four-gradient" className="size-full object-cover" />
+          <Image src="/images/gradient/gradient-44.png" alt="footer-four-gradient" className="size-full object-cover" />
         </figure>
       </RevealAnimation>
       <div className="main-container px-5">
@@ -27,7 +19,7 @@ const FooterFour = ({ className }: { className?: string }) => {
             <div className="col-span-12 xl:col-span-4">
               <div className="max-w-[306px]">
                 <figure>
-                  <Image src={darkLogo} alt="NextSass Logo" />
+                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={198} height={44} className="dark:invert" />
                 </figure>
                 <p className="text-accent/60 text-tagline-1 mt-4 mb-7 font-normal">
                   Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.
@@ -35,32 +27,32 @@ const FooterFour = ({ className }: { className?: string }) => {
                 <div className="flex items-center gap-3">
                   <Link target="_blank" href="https://www.facebook.com">
                     <span className="sr-only">Facebook</span>
-                    <Image className="size-6" src={facebook} alt="Facebook" />
+                    <Image className="size-6" src="/images/icons/facebook.svg" alt="Facebook" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px" />
                   <Link target="_blank" href="https://www.instagram.com">
                     <span className="sr-only">Instagram</span>
-                    <Image className="size-6" src={instagram} alt="Instagram" />
+                    <Image className="size-6" src="/images/icons/instagram.svg" alt="Instagram" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px" />
                   <Link target="_blank" href="https://www.youtube.com">
                     <span className="sr-only">Youtube</span>
-                    <Image className="size-6" src={youtube} alt="Youtube" />
+                    <Image className="size-6" src="/images/icons/youtube.svg" alt="Youtube" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px" />
                   <Link target="_blank" href="https://www.linkedin.com">
                     <span className="sr-only">LinkedIn</span>
-                    <Image className="size-6" src={linkedin} alt="LinkedIn" />
+                    <Image className="size-6" src="/images/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px" />
                   <Link target="_blank" href="https://www.dribbble.com">
                     <span className="sr-only">Dribbble</span>
-                    <Image className="size-6" src={dribbble} alt="Dribbble" />
+                    <Image className="size-6" src="/images/icons/dribbble.svg" alt="Dribbble" width={24} height={24} />
                   </Link>
                   <div className="bg-stroke-1/20 h-6 w-px" />
                   <Link target="_blank" href="https://www.behance.net">
                     <span className="sr-only">Behance</span>
-                    <Image className="size-6" src={behance} alt="Behance" />
+                    <Image className="size-6" src="/images/icons/behance.svg" alt="Behance" width={24} height={24} />
                   </Link>
                 </div>
               </div>
@@ -73,7 +65,7 @@ const FooterFour = ({ className }: { className?: string }) => {
                   <p className="sm:text-heading-6 text-tagline-1 text-primary-50 font-normal">Company</p>
                   <ul className="space-y-5">
                     <li>
-                      <Link href="/about-01" className="footer-link">
+                      <Link href="/about" className="footer-link">
                         About Us
                       </Link>
                     </li>
@@ -88,7 +80,7 @@ const FooterFour = ({ className }: { className?: string }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/contact-us" className="footer-link">
+                      <Link href="/contact" className="footer-link">
                         Contact Us
                       </Link>
                     </li>
@@ -165,7 +157,7 @@ const FooterFour = ({ className }: { className?: string }) => {
           <FooterDivider className="bg-accent/10 dark:bg-stroke-6" />
           <RevealAnimation delay={0.7} offset={10} start="top 105%">
             <p className="text-tagline-1 text-primary-50 font-normal">
-              Copyright ©Pixels71. NextSaaS – smart application for modern business
+              Copyright ©Pixels71. pelstack – smart application for modern business
             </p>
           </RevealAnimation>
         </div>

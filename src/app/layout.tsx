@@ -5,7 +5,7 @@ import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
 export const metadata = {
-  title: 'Homepage Project - Next SaaS',
+  title: 'Homepage Project - pelstack',
   description: 'A modern SaaS homepage built with Next.js',
 };
 
@@ -16,6 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      
       <head>
         <script
           dangerouslySetInnerHTML={{

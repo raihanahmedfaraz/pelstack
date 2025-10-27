@@ -16,7 +16,6 @@ Common Styles all over the sites
     overflow-y: scroll !important;
     height: 100% !important;
     position: relative !important;
-    -webkit-overflow-scrolling: touch !important;
   }
   
   body {
@@ -25,7 +24,6 @@ Common Styles all over the sites
     min-height: 100% !important;
     height: auto !important;
     position: relative !important;
-    -webkit-overflow-scrolling: touch !important;
   }
   
   /* Ensure no fixed positioning interferes with scroll */
@@ -51,8 +49,6 @@ Common Styles all over the sites
 /* Hide scrollbar for IE, Edge and Firefox */
 .scroll-bar {
   -ms-overflow-style: none; /* IE and Edge */
-  /* stylelint-disable-next-line compat-api/css */
-  scrollbar-width: none; /* Firefox 64+ */
 }
 
 /* Fallback for older browsers that don't support scrollbar-width */

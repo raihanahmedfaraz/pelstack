@@ -122,12 +122,12 @@ const Services = () => {
         <RevealAnimation delay={0.9}>
           <div className="flex flex-col md:flex-row items-center gap-y-5 md:gap-x-3 justify-center">
             <LinkButton
-              href="/our-services-01"
+              href="/services"
               className="btn btn-secondary dark:btn-accent btn-md hover:btn-white dark:hover:btn-white-dark w-[90%] md:w-auto">
               Explore services
             </LinkButton>
             <LinkButton
-              href="/contact-us"
+              href="/contact"
               className="btn hover:btn-secondary dark:btn-transparent btn-white btn-md dark:hover:btn-accent w-[90%] md:w-auto">
               Book a call
             </LinkButton>

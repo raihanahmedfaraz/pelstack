@@ -11,7 +11,7 @@ after:
   - 'Near-zero data errors'
   - 'Same-day patient onboarding'
   - 'Automated HIPAA compliance tracking'
-thumbnail: '/images/homepage/portfolio-3.jpg'
+thumbnail: '/images/home-page-15/portfolio-3.jpg'
 keyFeatures:
   - 'Secure patient record management'
   - 'HIPAA-compliant data storage'

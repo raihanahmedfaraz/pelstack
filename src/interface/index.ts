@@ -18,7 +18,17 @@ export interface ICaseStudy {
   description: string;
   thumbnail: string;
   Results: string;
+  result: string;
   slug: string;
+  before?: string[];
+  after?: string[];
+  keyFeatures?: string[];
+  userReview: {
+    userName: string;
+    userImage: string;
+    userRole: string;
+    reviewText: string;
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }

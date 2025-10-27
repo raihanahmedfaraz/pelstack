@@ -22,7 +22,7 @@ const CTA = () => {
           <RevealAnimation delay={0.5}>
             <div className="md:inline-block text-center">
               <LinkButton
-                href="/contact-us"
+                href="/contact"
                 className="btn btn-secondary hover:btn-white dark:hover:btn-accent dark:btn-transparent btn-md w-[85%] md:w-auto">
                 Schedule your free call
               </LinkButton>

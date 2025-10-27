@@ -45,7 +45,7 @@ const ReviewsV1 = ({
           </RevealAnimation>
           <RevealAnimation delay={0.3}>
             <p className="max-[426px]:text-tagline-2 max-w-[490px] max-[426px]:max-w-[320px]">
-              &quot;Real apps. Real results. &quot;Nextsaas delivered our entire platform ahead of schedule—flawless
+              &quot;Real apps. Real results. &quot;pelstack delivered our entire platform ahead of schedule—flawless
               execution and real partnership.&quot;
             </p>
           </RevealAnimation>
@@ -77,7 +77,7 @@ const ReviewsV1 = ({
                         sliderClassName,
                       )}>
                       <GradientOverlay />
-                      <figure className="relative inline-block size-14 overflow-hidden rounded-full bg-linear-[156deg,_#FFF_32.92%,_#83E7EE_91%] ring-4 ring-white dark:ring-background-5">
+                      <figure className="relative inline-block size-14 overflow-hidden rounded-full bg-linear-[156deg,#FFF_32.92%,#83E7EE_91%] ring-4 ring-white dark:ring-background-5">
                         <Image
                           src={review.avatar}
                           height={100}
@@ -89,7 +89,7 @@ const ReviewsV1 = ({
                       </figure>
                       <p className="text-secondary/60 dark:text-accent/60 line-clamp-2 review-text">{review.quote}</p>
                       <div>
-                        <p className="text-secondary dark:text-accent review-name text-lg leading-[1.5] font-medium">
+                        <p className="text-secondary dark:text-accent review-name text-lg leading-normal font-medium">
                           {review.name}
                         </p>
                         <p className="text-secondary/60 dark:text-accent/60 text-tagline-2 review-title">

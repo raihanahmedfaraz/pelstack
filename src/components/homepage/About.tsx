@@ -40,7 +40,7 @@ const About = () => {
                 <div className="lg:max-w-[508px] xl:mx-auto space-y-10 lg:space-y-14">
                   <div className="space-y-3 lg:space-y-5">
                     <RevealAnimation delay={0.2}>
-                      <span className="badge badge-blur">About NextSaaS</span>
+                      <span className="badge badge-blur">About pelstack</span>
                     </RevealAnimation>
                     <div className="space-y-2 lg:space-y-3">
                       <RevealAnimation delay={0.3}>
@@ -59,9 +59,9 @@ const About = () => {
                   </div>
                   <RevealAnimation delay={0.4}>
                     <LinkButton
-                      href="/about-01"
+                      href="/about"
                       className="btn btn-base btn-dark dark:btn-transparent dark:border hover:btn-primary w-[85%] md:w-auto mx-auto">
-                      More about NextSaaS
+                      More about pelstack
                     </LinkButton>
                   </RevealAnimation>
                 </div>

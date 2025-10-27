@@ -29,8 +29,7 @@ const MobileMenuItem = ({ id, title, children, hasSubmenu = false }: MobileMenuI
           'sub-menu text-tagline-1 border-stroke-4 dark:border-stroke-6 flex w-full cursor-pointer items-center justify-between border-b py-3 text-left font-normal transition-all duration-200',
           isActive ? 'text-secondary dark:text-accent font-medium' : 'text-secondary/60 dark:text-accent/60',
         )}
-        aria-expanded={hasSubmenu ? isActive : undefined}
-        aria-controls={hasSubmenu ? `submenu-${id}` : undefined}>
+        {...(hasSubmenu && { 'aria-expanded': isActive, 'aria-controls': `submenu-${id}` })}>
         <span>{title}</span>
         {hasSubmenu && (
           <span className={cn('transition-transform duration-300 ease-in-out', isActive && 'rotate-90')}>

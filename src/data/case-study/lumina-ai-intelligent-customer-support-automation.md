@@ -12,7 +12,7 @@ after:
   - '40% lower support costs'
   - 'Always-on availability'
   - '85% first-contact resolution'
-thumbnail: '/images/homepage/project-3.png'
+thumbnail: '/images/home-page-17/project-3.png'
 keyFeatures:
   - 'AI-powered virtual assistant'
   - '24/7 automated customer support'

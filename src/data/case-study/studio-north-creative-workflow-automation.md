@@ -12,7 +12,7 @@ after:
   - 'Automated project management'
   - 'Real-time client collaboration'
   - 'Smooth and efficient workflows'
-thumbnail: '/images/homepage/project-2.png'
+thumbnail: '/images/home-page-17/project-2.png'
 keyFeatures:
   - 'AI-powered design automation'
   - 'Automated project management'

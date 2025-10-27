@@ -11,9 +11,7 @@ after:
   - '95%+ on-time delivery'
   - '1 hour of automated coordination'
   - '50% lower project overhead'
-  - 'Inconsistent client feedback cycles'
-  - 'High operational bottlenecks'
-thumbnail: '/images/homepage/portfolio-2.jpg'
+thumbnail: '/images/home-page-15/portfolio-2.jpg'
 keyFeatures:
   - 'Automated task assignment & scheduling'
   - 'Centralized asset management'

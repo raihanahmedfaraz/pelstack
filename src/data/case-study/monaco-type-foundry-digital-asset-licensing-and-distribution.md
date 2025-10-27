@@ -3,8 +3,7 @@ title: 'Monaco Type Foundry – digital asset licensing & distribution'
 description: 'Creative businesses are modernizing their digital asset distribution with licensing platforms that ensure security, streamline customer experiences, and unlock new revenue opportunities.'
 before:
   - '10+ hours/week of manual licensing'
-  - 'Manual licensing processes'
-  - 'Limited customer reach'
+  - 'Limited global reach'
   - '2–3 days to process orders'
   - 'High piracy risks'
 after:
@@ -12,7 +11,7 @@ after:
   - 'Worldwide distribution'
   - 'Instant order fulfillment'
   - 'Secure, trackable licensing system'
-thumbnail: '/images/homepage/portfolio-4.jpg'
+thumbnail: '/images/home-page-15/portfolio-4.jpg'
 keyFeatures:
   - 'Automated font licensing platform'
   - 'Secure digital rights management (DRM)'
