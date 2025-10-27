@@ -1,5 +1,3 @@
-import NavbarOne from '@/components/shared/header/NavbarOne';
-import FooterOne from '@/components/shared/footer/FooterOne';
 import Banner from '@/components/tutorial/Banner';
 import Blog from '@/components/tutorial/Blog';
 import Community from '@/components/tutorial/Community';
@@ -16,7 +14,6 @@ export const metadata = {
 const TutorialPage = () => {
   return (
     <>
-      <NavbarOne />
       <Banner />
       <Features />
       <Tutorials />
@@ -24,7 +21,6 @@ const TutorialPage = () => {
       <Integration />
       <Blog />
       <Community />
-      <FooterOne />
     </>
   );
 };

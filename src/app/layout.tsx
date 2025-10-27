@@ -1,5 +1,7 @@
 import SmoothScrollProvider from '@/components/shared/SmoothScroll';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import NavbarOne from '@/components/shared/header/NavbarOne';
+import FooterOne from '@/components/shared/footer/FooterOne';
 import { interTight } from '@/utils/font';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
@@ -57,7 +59,15 @@ export default function RootLayout({
       <body className={`${interTight.variable} antialiased`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Suspense fallback={<div>Loading...</div>}>
-            <SmoothScrollProvider>{children}</SmoothScrollProvider>
+            <SmoothScrollProvider>
+              <NavbarOne
+                className="border border-stroke-2 bg-accent/60 dark:border-stroke-6 dark:bg-background-9 backdrop-blur-[25px]"
+                btnClassName="btn-primary hover:btn-secondary dark:hover:btn-accent"
+                megaMenuColor="!bg-background-4 dark:!bg-background-9"
+              />
+              {children}
+              <FooterOne />
+            </SmoothScrollProvider>
           </Suspense>
         </ThemeProvider>
       </body>

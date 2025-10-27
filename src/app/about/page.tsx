@@ -3,8 +3,6 @@ import WhyChooseUs from '@/components/about/WhyChooseUs';
 import RevealAnimation from '@/components/animation/RevealAnimation';
 import Team from '@/components/about/Team';
 import CTA from '@/components/homepage/CTA';
-import FooterOne from '@/components/shared/footer/FooterOne';
-import NavbarOne from '@/components/shared/header/NavbarOne';
 import OurAchievements from '@/components/shared/OurAchievements';
 import PageHero from '@/components/shared/PageHero';
 import OurMission from '@/components/about/OurMission';
@@ -20,11 +18,6 @@ export const metadata: Metadata = {
 const AboutPage01 = () => {
   return (
     <>
-      <NavbarOne
-        megaMenuColor="dark:bg-background-7"
-        className="border border-stroke-2 bg-accent/60 backdrop-blur-[25px] dark:border-stroke-6 dark:bg-background-9"
-        btnClassName="btn-primary hover:bg-secondary dark:hover:btn-accent"
-      />
       <main className="bg-background-3 dark:bg-background-7">
         <PageHero
           className="bg-background-3 dark:bg-background-7"
@@ -41,8 +34,8 @@ const AboutPage01 = () => {
               </RevealAnimation>
               <RevealAnimation delay={0.3}>
                 <p className="max-w-[744px] mx-auto">
-                  With more than ten years of hands-on experience, we’ve built a strong foundation of knowledge, skill,
-                  and trust in our industry. Over the years, we’ve navigated evolving trends, embraced new technologies,
+                  With more than ten years of hands-on experience, we've built a strong foundation of knowledge, skill,
+                  and trust in our industry. Over the years, we've navigated evolving trends, embraced new technologies,
                   and
                 </p>
               </RevealAnimation>
@@ -56,7 +49,6 @@ const AboutPage01 = () => {
         <Team className="bg-background-3 dark:bg-background-7 py-[100px]" badgeColor="badge-cyan" />
         <CTA />
       </main>
-      <FooterOne />
     </>
   );
 };

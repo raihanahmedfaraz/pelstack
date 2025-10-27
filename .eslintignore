@@ -1,0 +1,15 @@
+# Ignore RUN reference project
+RUN/
+
+# Ignore build outputs
+.next/
+out/
+build/
+dist/
+
+# Ignore dependencies
+node_modules/
+
+# Ignore config files
+*.config.js
+*.config.cjs

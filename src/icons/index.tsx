@@ -55,7 +55,25 @@ const LinkedinIcon: FC<ArrowIconProps> = ({ className }) => (
   </svg>
 );
 
-export { CheckIcon, CalendarIcon, StopwatchIcon, FacebookIcon, DribbleIcon, GithubIcon, LinkedinIcon };
+const XIcon: FC<ArrowIconProps> = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 13 12"
+    fill="none"
+    aria-hidden="true"
+    className={cn('fill-secondary dark:fill-accent', className)}>
+    <g clipPath="url(#clip0_928_12896)">
+      <path d="M10.1161 0H11.9564L7.93583 5.08308L12.6657 12H8.96225L6.06156 7.80492L2.7425 12H0.901058L5.20148 6.56308L0.664062 0H4.46156L7.08353 3.83446L10.1161 0ZM9.47018 10.7815H10.4899L3.90746 1.15446H2.81316L9.47018 10.7815Z" />
+    </g>
+    <defs>
+      <clipPath>
+        <rect width={12} height={12} fill="white" transform="translate(0.664062)" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export { CheckIcon, CalendarIcon, StopwatchIcon, FacebookIcon, DribbleIcon, GithubIcon, LinkedinIcon, XIcon };
 
 const ProjectAchievementCheckIcon = () => (
   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
