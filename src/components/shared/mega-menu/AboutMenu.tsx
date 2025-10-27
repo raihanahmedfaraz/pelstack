@@ -5,7 +5,8 @@ interface AboutMenuProps {
   className?: string;
 }
 
-const AboutMenu = (_props: AboutMenuProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const AboutMenu = (props: AboutMenuProps) => {
   // About navigation is now a direct link, so this component is not rendered
   return null;
 };

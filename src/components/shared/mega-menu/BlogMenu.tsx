@@ -5,7 +5,8 @@ interface BlogMenuProps {
   className?: string;
 }
 
-const BlogMenu = (_props: BlogMenuProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const BlogMenu = (props: BlogMenuProps) => {
   // Blog navigation is now a direct link, so this component is not rendered
   return null;
 };

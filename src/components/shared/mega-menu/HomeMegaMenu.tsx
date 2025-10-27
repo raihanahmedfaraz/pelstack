@@ -5,7 +5,8 @@ interface HomeMegaMenuProps {
   className?: string;
 }
 
-const HomeMegaMenu = (_props: HomeMegaMenuProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const HomeMegaMenu = (props: HomeMegaMenuProps) => {
   // Home navigation is now a direct link, so this component is not rendered
   return null;
 };

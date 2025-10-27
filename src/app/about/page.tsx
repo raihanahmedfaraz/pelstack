@@ -34,8 +34,8 @@ const AboutPage01 = () => {
               </RevealAnimation>
               <RevealAnimation delay={0.3}>
                 <p className="max-w-[744px] mx-auto">
-                  With more than ten years of hands-on experience, we've built a strong foundation of knowledge, skill,
-                  and trust in our industry. Over the years, we've navigated evolving trends, embraced new technologies,
+                  With more than ten years of hands-on experience, we&apos;ve built a strong foundation of knowledge, skill,
+                  and trust in our industry. Over the years, we&apos;ve navigated evolving trends, embraced new technologies,
                   and
                 </p>
               </RevealAnimation>
