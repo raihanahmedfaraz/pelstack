@@ -1,6 +1,6 @@
 import SmoothScrollProvider from '@/components/shared/SmoothScroll';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
-import NavbarOne from '@/components/shared/header/NavbarOne';
+import NavbarThree from '@/components/shared/header/NavbarThree';
 import FooterOne from '@/components/shared/footer/FooterOne';
 import { interTight } from '@/utils/font';
 import { ReactNode, Suspense } from 'react';
@@ -60,11 +60,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Suspense fallback={<div>Loading...</div>}>
             <SmoothScrollProvider>
-              <NavbarOne
-                className="border border-stroke-2 bg-accent/60 dark:border-stroke-6 dark:bg-background-9 backdrop-blur-[25px]"
-                btnClassName="btn-primary hover:btn-secondary dark:hover:btn-accent"
-                megaMenuColor="!bg-background-4 dark:!bg-background-9"
-              />
+              <NavbarThree btnClassName="btn-primary hover:btn-secondary dark:hover:btn-accent" />
               {children}
               <FooterOne />
             </SmoothScrollProvider>

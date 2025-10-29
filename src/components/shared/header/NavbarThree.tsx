@@ -19,7 +19,7 @@ const NavbarThree = ({ btnClassName }: { btnClassName?: string }) => {
   return (
     <MobileMenuProvider>
       <RevealAnimation delay={0.1} direction="up" offset={100}>
-        <header className="dark:bg-background-5 border-stroke-2 dark:border-stroke-6 fixed top-0 right-0 left-0 z-10 flex items-center border-b bg-white px-5 py-5 xl:py-0">
+  <header className="dark:bg-background-5 border-stroke-2 dark:border-stroke-6 fixed top-0 right-0 left-0 z-100 flex items-center border-b bg-white px-5 py-5 xl:py-0">
           <div
             className={cn(
               'mx-auto flex w-full max-w-[1920px] items-center justify-between px-6 transition-all duration-500 ease-in-out',

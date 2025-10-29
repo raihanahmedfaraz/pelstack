@@ -7,7 +7,22 @@ const Logo = () => {
       <Link href="/">
         <span className="sr-only">Home</span>
         <figure className="hidden lg:block lg:max-w-[198px]">
-          <Image src="/images/shared/main-logo.svg" alt="pelstack" width={198} height={44} className="dark:invert" />
+          {/* Light mode logo */}
+          <Image
+            src="/images/shared/main-logo.svg"
+            alt="pelstack"
+            width={198}
+            height={44}
+            className="block dark:hidden"
+          />
+          {/* Dark mode logo */}
+          <Image
+            src="/images/shared/dark-logo.svg"
+            alt="pelstack"
+            width={198}
+            height={44}
+            className="hidden dark:block"
+          />
         </figure>
 
         {/* mobile logo */}

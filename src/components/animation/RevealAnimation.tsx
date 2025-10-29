@@ -145,11 +145,8 @@ const RevealAnimation = ({
     }
   }, [duration, delay, offset, instant, start, end, direction, useSpring, rotation, animationType]);
 
-  // Early return if children is not valid (after all hooks)
+  // Early return if children is not a valid React element; render as-is without logging
   if (!children || !React.isValidElement(children)) {
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('RevealAnimation: Invalid children prop provided. Expected a single React element.');
-    }
     return <>{children}</>;
   }
 
@@ -160,10 +157,8 @@ const RevealAnimation = ({
       className: cn(children?.props?.className, className),
       'data-ns-animate': true,
     });
-  } catch (error) {
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('RevealAnimation: Failed to clone element', error);
-    }
+  } catch {
+    // Fallback: render children without animation if cloning fails
     return <>{children}</>;
   }
 };
