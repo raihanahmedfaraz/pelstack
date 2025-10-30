@@ -2,6 +2,9 @@
 All the varaiables are added here
 =========================== */
 @theme {
+  /* =============== SPACING =============== */
+  --spacing: 0.25rem;  /* 4px base spacing unit */
+  
   /* =============== FONTS =============== */
   --font-inter-tight: 'Inter Tight', sans-serif;
   /* =============== COLORS =============== */

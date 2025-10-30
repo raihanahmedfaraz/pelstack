@@ -22,11 +22,13 @@ const NavbarThree = ({ btnClassName }: { btnClassName?: string }) => {
   <header className="dark:bg-background-5 border-stroke-2 dark:border-stroke-6 fixed top-0 right-0 left-0 z-100 flex items-center border-b bg-white px-5 py-5 xl:py-0">
           <div
             className={cn(
-              'mx-auto flex w-full max-w-[1920px] items-center justify-between px-6 transition-all duration-500 ease-in-out',
-              isScrolled && 'px-0',
+              'mx-auto flex w-full max-w-[1920px] items-center justify-between',
+              'xl:transition-all xl:duration-500 xl:ease-in-out',
+              'px-0 xl:px-6',
+              isScrolled && 'xl:px-0'
             )}>
             <Logo />
-            <div className="flex items-center gap-[76px]">
+            <div className="flex items-center gap-[25px]">
               <nav className="hidden items-center xl:flex">
                 <ul className="flex items-center gap-6">
                   {navigationItems.map((item) => {

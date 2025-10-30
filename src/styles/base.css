@@ -11,6 +11,13 @@ Font base styles
     @apply min-h-full;
     touch-action: manipulation;
   }
+
+  /* Responsive padding for mobile header */
+  @media (max-width: 1023px) {
+    header.fixed.py-5 {
+      padding-block: calc(var(--spacing) * 3) !important;
+    }
+  }
   
   /* Desktop-only smooth scroll behavior */
   @media (min-width: 1024px) {

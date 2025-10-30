@@ -37,9 +37,21 @@ const MobileMenu = () => {
         <div className="flex items-center justify-between">
           <Link href="/">
             <span className="sr-only">Home</span>
-            <figure className="max-w-11">
-              <Image src={logo} alt="pelstack" className="block w-full dark:hidden" />
-              <Image src={logoDark} alt="pelstack" className="hidden w-full dark:block" />
+            <figure className="w-[180px]">
+              <Image 
+                src="/images/shared/main-logo.svg" 
+                alt="pelstack" 
+                width={180}
+                height={44}
+                className="block dark:hidden" 
+              />
+              <Image 
+                src="/images/shared/dark-logo.svg" 
+                alt="pelstack" 
+                width={180}
+                height={44}
+                className="hidden dark:block" 
+              />
             </figure>
           </Link>
           {/* close menu btn */}

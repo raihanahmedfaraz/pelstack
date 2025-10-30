@@ -20,9 +20,9 @@ const FooterOne = ({ className }: { className?: string }) => {
           <div className="col-span-12 xl:col-span-4">
             <RevealAnimation delay={0.3}>
               <div className="max-w-[306px]">
-                <figure>
-                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={198} height={44} className="dark:hidden" />
-                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={198} height={44} className="hidden dark:block" />
+                <figure className="w-[180px]">
+                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={180} height={44} className="dark:hidden" />
+                  <Image src="/images/shared/dark-logo.svg" alt="pelstack Logo" width={180} height={44} className="hidden dark:block" />
                 </figure>
                 <p className="text-accent/60 text-tagline-1 mt-4 mb-7 font-normal">
                   Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.

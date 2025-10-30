@@ -2,7 +2,7 @@
 
 // Header v1
 import { MobileMenuProvider } from '@/context/MobileMenuContext';
-import { navigationItems } from '@/data/header';
+import { navigationItems, NavigationItem } from '@/data/header';
 import { useNavbarScroll } from '@/hooks/useScrollHeader';
 import { cn } from '@/utils/cn';
 import { FC } from 'react';
@@ -38,7 +38,7 @@ const NavbarOne: FC<NavbarOneProps> = ({ className, megaMenuColor, btnClassName 
           {/* navigation */}
           <nav className="hidden items-center xl:flex">
             <ul className="flex items-center">
-              {navigationItems.map((item) => {
+              {navigationItems.map((item: NavigationItem) => {
                 const renderMegaMenu = () => {
                   switch (item?.megaMenuComponent) {
                     case 'HomeMegaMenu':

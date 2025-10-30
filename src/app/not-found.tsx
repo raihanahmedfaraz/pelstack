@@ -1,6 +1,6 @@
 import RevealAnimation from '@/components/animation/RevealAnimation';
 import FooterOne from '@/components/shared/footer/FooterOne';
-import NavbarOne from '@/components/shared/header/NavbarOne';
+import NavbarThree from '@/components/shared/header/NavbarThree';
 import LinkButton from '@/components/ui/button/LinkButton';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -14,10 +14,7 @@ export const metadata: Metadata = {
 const NotFound = () => {
   return (
     <React.Fragment>
-      <NavbarOne
-        className="border border-stroke-2 bg-accent/60 dark:border-stroke-6 dark:bg-background-9 backdrop-blur-[25px]"
-        btnClassName="btn-primary hover:btn-secondary dark:hover:btn-accent"
-      />
+      <NavbarThree btnClassName="btn-primary hover:btn-secondary dark:hover:btn-accent" />
       <main className="bg-background-2 dark:bg-background-5">
         <section className="pt-28 md:pt-36 lg:pt-44 xl:pt-60 pb-20 md:pb-28 lg:pb-40 xl:pb-52 section-reveal">
           <div className="main-container">

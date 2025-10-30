@@ -8,14 +8,18 @@ import hero7 from '@public/images/homepage/hero-slide-7.jpg';
 import Image from 'next/image';
 import RevealAnimation from '../animation/RevealAnimation';
 import LinkButton from '../ui/button/LinkButton';
-import LineExpand from './LineExpand';
 import ScrollExpand from './ScrollExpand';
+import GradientAnimation from './GradientAnimation';
 
 const Hero = () => {
   return (
-    <section className="lg:pb-[100px] pb-16 lg:pt-[234px] pt-[150px] relative overflow-hidden" id="hero">
-      <LineExpand />
-      <div className="main-container mb-[100px]">
+    <section className="lg:pb-[100px] pb-16 lg:pt-[234px] pt-[150px] relative overflow-hidden bg-white dark:bg-background-5" id="hero">
+      <RevealAnimation delay={0.6} offset={0}>
+        <figure className="absolute top-0 left-1/2 -translate-x-1/2 max-w-[1390px] w-full h-full z-0">
+          <GradientAnimation />
+        </figure>
+      </RevealAnimation>
+      <div className="main-container mb-[100px] relative z-1">
         <div className="space-y-14 text-center">
           <div className="space-y-4">
             <RevealAnimation delay={0.2}>
@@ -51,7 +55,7 @@ const Hero = () => {
         </div>
       </div>
       <RevealAnimation delay={0.2} offset={90}>
-        <div>
+        <div className="relative z-2">
           <div className="flex gap-4 justify-center items-center overflow-y-auto overflow-x-hidden scroll-bar">
             <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full ml-4">
               <Image src={hero1} className="w-full h-full object-cover" alt="hero-slide-1" />
