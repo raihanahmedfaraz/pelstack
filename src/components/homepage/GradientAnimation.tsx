@@ -20,17 +20,27 @@ const PATH_IDS = [
   'curve-path-8',
 ] as const;
 
-// start → end colors per path
-const GRADIENTS: Array<[string, string]> = [
-  ['#83E7EE', '#F9EB57'],
-  ['#F9EB57', '#83E7EE'],
-  ['#83E7EE', '#F9EB57'],
-  ['#83E7EE', '#F9EB57'],
-  ['#F9EB57', '#83E7EE'],
-  ['#83E7EE', '#F9EB57'],
-  ['#F9EB57', '#83E7EE'],
-  ['#83E7EE', '#F9EB57'],
-];
+const HORIZONTAL_PATH_IDS = [
+  'horizontal-path-1',
+  'horizontal-path-2',
+  'horizontal-path-3',
+] as const;
+
+// Utility to read CSS custom properties (theme-aware) with fallback
+const cssVar = (name: string, fallback: string) => {
+  if (typeof window === 'undefined') return fallback;
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || fallback;
+};
+
+// Build brand-aligned palette from CSS variables (falls back to current hues)
+const getBrandPalette = () => {
+  const purple = cssVar('--color-primary-500', '#864ffe');
+  const cyan = cssVar('--color-ns-cyan', '#83e7ee');
+  const yellow = cssVar('--color-ns-yellow', '#f9eb57');
+  const green = cssVar('--color-ns-green', '#c6f56f');
+  return { purple, cyan, yellow, green } as const;
+};
 
 const interpolateColor = (c1: string, c2: string, f: number) => {
   const r1 = parseInt(c1.slice(1, 3), 16),
@@ -46,19 +56,75 @@ const interpolateColor = (c1: string, c2: string, f: number) => {
 };
 
 const RECT_COUNT = 60;
+const HORIZONTAL_RECT_COUNT = 80;
 
 const GradientAnimation = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const tweensRef = useRef<gsap.core.Tween[]>([]);
+  const travelTweensRef = useRef<gsap.core.Tween[]>([]);
+  const twinkleTweensRef = useRef<gsap.core.Tween[]>([]);
 
   // Use useEffect for more reliable initialization
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
 
+    const prefersReduced =
+      typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const { cyan, yellow, purple, green } = getBrandPalette();
+    // start → end colors per path, brand-inspired and alternating for a pixel-stream feel
+    const GRADIENTS: Array<[string, string]> = [
+      [cyan, yellow],
+      [purple, cyan],
+      [yellow, green],
+      [purple, yellow],
+      [cyan, purple],
+      [green, cyan],
+      [yellow, purple],
+      [cyan, green],
+    ];
+
     // Wait for DOM to be ready
     const timer = setTimeout(() => {
       try {
-        PATH_IDS.forEach((pathId, idx) => {
+        // If user prefers reduced motion, render static pixels without GSAP tweens
+        if (prefersReduced) {
+          PATH_IDS.forEach((pathId, idx) => {
+            const group = idx + 1;
+            const [startCol, endCol] = GRADIENTS[idx];
+            for (let i = 1; i <= RECT_COUNT; i++) {
+              const rect = svg.querySelector<SVGRectElement>(`#rect-${group}-${i}`);
+              if (!rect) continue;
+              const factor = (i - 1) / (RECT_COUNT - 1);
+              rect.setAttribute('fill', interpolateColor(startCol, endCol, factor));
+              rect.setAttribute('opacity', String(0.4 + factor * 0.6));
+            }
+          });
+          
+          // Static horizontal lines
+          const horizontalGradients: Array<[string, string]> = [
+            [cyan, purple],
+            [yellow, cyan],
+            [purple, yellow],
+          ];
+          HORIZONTAL_PATH_IDS.forEach((pathId, idx) => {
+            const group = idx + 9;
+            const [startCol, endCol] = horizontalGradients[idx];
+            for (let i = 1; i <= HORIZONTAL_RECT_COUNT; i++) {
+              const rect = svg.querySelector<SVGRectElement>(`#h-rect-${group}-${i}`);
+              if (!rect) continue;
+              const factor = (i - 1) / (HORIZONTAL_RECT_COUNT - 1);
+              rect.setAttribute('fill', interpolateColor(startCol, endCol, factor));
+              rect.setAttribute('opacity', String(0.4 + factor * 0.6));
+            }
+          });
+          return;
+        }
+
+        // Animated mode
+  const tweens: gsap.core.Tween[] = [];
+  PATH_IDS.forEach((pathId, idx) => {
           const path = svg.querySelector<SVGPathElement>(`#${pathId}`);
           if (!path) {
             console.warn(`Path not found: ${pathId}`);
@@ -68,7 +134,7 @@ const GradientAnimation = () => {
           const group = idx + 1;
           const [startCol, endCol] = GRADIENTS[idx];
           const baseDelay = gsap.utils.random(0, 2);
-          const duration = gsap.utils.random(3, 6);
+          const duration = gsap.utils.random(4, 8);
 
           // Animate each rect along the path using MotionPath
           for (let i = 1; i <= RECT_COUNT; i++) {
@@ -80,9 +146,10 @@ const GradientAnimation = () => {
             // Calculate gradient color based on position
             const factor = (i - 1) / (RECT_COUNT - 1);
             rect.setAttribute('fill', interpolateColor(startCol, endCol, factor));
+            rect.setAttribute('opacity', String(0.6));
 
             // Animate rect along the path
-            gsap.to(rect, {
+            const travel = gsap.to(rect, {
               motionPath: {
                 path: path,
                 align: path,
@@ -92,17 +159,101 @@ const GradientAnimation = () => {
               duration: duration,
               ease: 'power1.inOut',
               repeat: -1,
-              delay: baseDelay + i * 0.002, // Slight stagger to create continuous line
+              // Negative delay offsets the start position along the path for a continuous stream
+              delay: baseDelay - gsap.utils.random(0, duration),
             });
+
+            // Subtle flicker/scale to feel like pixels blinking
+            const twinkle = gsap.to(rect, {
+              opacity: gsap.utils.random(0.5, 0.8),
+              scale: gsap.utils.random(0.95, 1.05),
+              transformOrigin: '50% 50%',
+              duration: gsap.utils.random(1.4, 2.2),
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+              delay: gsap.utils.random(0, 1.2),
+            });
+
+            tweens.push(travel, twinkle);
+            travelTweensRef.current.push(travel);
+            twinkleTweensRef.current.push(twinkle);
           }
         });
+
+        // Animate horizontal paths at the bottom
+        HORIZONTAL_PATH_IDS.forEach((pathId, idx) => {
+          const path = svg.querySelector<SVGPathElement>(`#${pathId}`);
+          if (!path) {
+            console.warn(`Horizontal path not found: ${pathId}`);
+            return;
+          }
+
+          const group = idx + 9; // Start from group 9
+          const horizontalGradients: Array<[string, string]> = [
+            [cyan, purple],
+            [yellow, cyan],
+            [purple, yellow],
+          ];
+          const [startCol, endCol] = horizontalGradients[idx];
+          const baseDelay = gsap.utils.random(0, 1);
+          const duration = gsap.utils.random(5, 8);
+
+          for (let i = 1; i <= HORIZONTAL_RECT_COUNT; i++) {
+            const rect = svg.querySelector<SVGRectElement>(`#h-rect-${group}-${i}`);
+            if (!rect) continue;
+
+            const factor = (i - 1) / (HORIZONTAL_RECT_COUNT - 1);
+            rect.setAttribute('fill', interpolateColor(startCol, endCol, factor));
+            rect.setAttribute('opacity', String(0.6));
+
+            const travel = gsap.to(rect, {
+              motionPath: {
+                path: path,
+                align: path,
+                alignOrigin: [0.5, 0.5],
+                autoRotate: false,
+              },
+              duration: duration,
+              ease: 'power1.inOut',
+              repeat: -1,
+              delay: baseDelay - gsap.utils.random(0, duration),
+            });
+
+            const twinkle = gsap.to(rect, {
+              opacity: gsap.utils.random(0.5, 0.8),
+              scale: gsap.utils.random(0.95, 1.05),
+              transformOrigin: '50% 50%',
+              duration: gsap.utils.random(1.4, 2.2),
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+              delay: gsap.utils.random(0, 1.2),
+            });
+
+            tweens.push(travel, twinkle);
+            travelTweensRef.current.push(travel);
+            twinkleTweensRef.current.push(twinkle);
+          }
+        });
+
+        tweensRef.current = tweens;
       } catch (error) {
         console.error('Error in gradient animation:', error);
         // Silent error handling
       }
     }, 200);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      // Kill any active tweens
+      tweensRef.current.forEach((t) => t.kill());
+      tweensRef.current = [];
+      travelTweensRef.current.forEach((t) => t.kill());
+      travelTweensRef.current = [];
+      twinkleTweensRef.current.forEach((t) => t.kill());
+      twinkleTweensRef.current = [];
+    };
   }, []);
 
   const renderRectGroup = (groupId: number) =>
@@ -110,13 +261,39 @@ const GradientAnimation = () => {
       <rect key={`rect-${groupId}-${i + 1}`} id={`rect-${groupId}-${i + 1}`} width={2} height={2} />
     ));
 
+  const renderHorizontalRectGroup = (groupId: number) =>
+    Array.from({ length: HORIZONTAL_RECT_COUNT }, (_, i) => (
+      <rect key={`h-rect-${groupId}-${i + 1}`} id={`h-rect-${groupId}-${i + 1}`} width={2} height={2} />
+    ));
+
   return (
     <svg
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
-      className="xl:max-w-[1392px] xl:max-h-[1500px] max-[400px]:max-w-[320px] max-[400px]:max-h-[500px] mx-auto h-full w-full relative top-0"
+      className="w-full h-full relative top-0"
       viewBox="0 0 1392 1378"
-      fill="none">
+      preserveAspectRatio="none"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        {/* Soft glow for pixels */}
+        <filter id="pixel-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* Subtle grid pattern to hint at pixel matrix */}
+        <pattern id="grid-pattern" width="18" height="18" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="1" height="1" fill="currentColor" opacity="0.06" />
+        </pattern>
+      </defs>
+
+      {/* faint grid background */}
+      <rect x="0" y="0" width="1392" height="1378" fill="url(#grid-pattern)" className="text-stroke-4 dark:text-stroke-5" />
       <path
         id="curve-path-1"
         d="M409.5 0V688.857C409.5 739.32 387.08 787.176 348.307 819.475L210.193 934.525C171.42 966.824 149 1014.68 149 1065.14V1436"
@@ -158,8 +335,38 @@ const GradientAnimation = () => {
         className="stroke-stroke-4 dark:stroke-stroke-5"
       />
 
-      {/* 8 groups × 60 rects */}
-      {Array.from({ length: 8 }, (_, g) => renderRectGroup(g + 1))}
+      {/* Horizontal flowing paths at bottom - left to right and right to left */}
+      <path
+        id="horizontal-path-1"
+        d="M0 1300 H1392"
+        className="stroke-stroke-4 dark:stroke-stroke-5"
+      />
+      <path
+        id="horizontal-path-2"
+        d="M1392 1340 H0"
+        className="stroke-stroke-4 dark:stroke-stroke-5"
+      />
+      <path
+        id="horizontal-path-3"
+        d="M0 1280 H1392"
+        className="stroke-stroke-4 dark:stroke-stroke-5"
+      />
+
+      {/* Pixels container with blend mode for luminous effect */}
+      <g id="pixels-layer" filter="url(#pixel-glow)" className="mix-blend-screen dark:mix-blend-screen">
+        {/* 8 groups × 60 rects - vertical paths */}
+        {Array.from({ length: 8 }, (_, g) => (
+          <g key={`group-${g + 1}`} id={`group-${g + 1}`} data-group={g + 1}>
+            {renderRectGroup(g + 1)}
+          </g>
+        ))}
+        {/* 3 groups × 80 rects - horizontal paths at bottom */}
+        {Array.from({ length: 3 }, (_, g) => (
+          <g key={`h-group-${g + 9}`} id={`h-group-${g + 9}`} data-group={g + 9}>
+            {renderHorizontalRectGroup(g + 9)}
+          </g>
+        ))}
+      </g>
     </svg>
   );
 };

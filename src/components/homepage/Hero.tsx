@@ -10,12 +10,14 @@ import RevealAnimation from '../animation/RevealAnimation';
 import LinkButton from '../ui/button/LinkButton';
 import ScrollExpand from './ScrollExpand';
 import GradientAnimation from './GradientAnimation';
+import HeroMaskEffect from './HeroMaskEffect';
 
 const Hero = () => {
   return (
     <section className="lg:pb-[100px] pb-16 lg:pt-[234px] pt-[150px] relative overflow-hidden bg-white dark:bg-background-5" id="hero">
+      <HeroMaskEffect />
       <RevealAnimation delay={0.6} offset={0}>
-        <figure className="absolute top-0 left-1/2 -translate-x-1/2 max-w-[1390px] w-full h-full z-0">
+        <figure className="absolute inset-0 w-full h-full z-0">
           <GradientAnimation />
         </figure>
       </RevealAnimation>
@@ -55,25 +57,25 @@ const Hero = () => {
         </div>
       </div>
       <RevealAnimation delay={0.2} offset={90}>
-        <div className="relative z-2">
-          <div className="flex gap-4 justify-center items-center overflow-y-auto overflow-x-hidden scroll-bar">
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full ml-4">
-              <Image src={hero1} className="w-full h-full object-cover" alt="hero-slide-1" />
+        <div className="relative z-2 w-full">
+          <div className="flex gap-4 items-center overflow-x-auto overflow-y-hidden scroll-bar pb-4 px-4 md:justify-center md:px-0 md:overflow-x-visible">
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
+              <Image src={hero1} className="w-full h-full object-cover" alt="hero-slide-1" priority />
             </figure>
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full">
-              <Image src={hero2} className="w-full h-full object-cover" alt="hero-slide-2" />
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
+              <Image src={hero2} className="w-full h-full object-cover" alt="hero-slide-2" priority />
             </figure>
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full">
-              <Image src={hero3} className="w-full h-full object-cover" alt="hero-slide-3" />
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
+              <Image src={hero3} className="w-full h-full object-cover" alt="hero-slide-3" priority />
             </figure>
             <ScrollExpand image={hero4} />
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full">
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
               <Image src={hero5} className="w-full h-full object-cover" alt="hero-slide-5" />
             </figure>
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full">
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
               <Image src={hero6} className="w-full h-full object-cover" alt="hero-slide-6" />
             </figure>
-            <figure className="rounded-[20px] overflow-hidden max-h-[380px] min-w-[257px] w-full">
+            <figure className="rounded-[20px] overflow-hidden h-[280px] sm:h-80 md:max-h-[380px] min-w-[200px] sm:min-w-[220px] md:min-w-[257px] w-[200px] sm:w-[220px] md:w-[257px] shrink-0">
               <Image src={hero7} className="w-full h-full object-cover" alt="hero-slide-7" />
             </figure>
           </div>
